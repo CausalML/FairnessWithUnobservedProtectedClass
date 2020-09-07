@@ -1,6 +1,7 @@
-###################################
+# Replication code for "Assessing Algorithmic Fairness with Unobserved Protected Class Using Data Combination"
+### https://arxiv.org/abs/1906.00285
+
 # Results for HMDA (Section 8.1)
-###################################
 ### Data Downloading 
 Our dataset is from the HMDA mortgage dataset. See https://www.consumerfinance.gov/data-research/hmda/. We use public mortgage records in US market during 2011-2012, which is also used in CFPB's BISG proxy method white paper (https://files.consumerfinance.gov/f/201409_cfpb_report_proxy-methodology.pdf). This dataset can be downloaded by copying and pasting the following link to the web browser (the full dataset is around 2G, and it can take a while to process the query and start downloading): 
 https://api.consumerfinance.gov/data/hmda/slice/hmda_lar.csv?&$where=as_of_year+IN+(2012,2011)+AND+action_taken+IN+(1,2,3)+AND+applicant_race_1+IN+(1,2,3,4,5)+AND+applicant_ethnicity+IN+(1,2)&$select=action_taken_name,%20applicant_ethnicity_name,%20applicant_income_000s,%20applicant_race_name_1,%20applicant_race_name_2,%20as_of_year,%20county_name,%20state_code&$limit=0
@@ -35,9 +36,7 @@ First run Warfrin/data_cleaning.ipynb to remove missing data and apply one-hot-e
 - Figure 7: run Warfrin/computeCI.R to compute the confidence intervals first, and then run Warfrin/Plotting.R to generate figure 7. Note that computeCI.R involves a random data splitting step, so the final figures might be slightly different from Figure 7 in our paper but the overall pattern should be similar. 
 - Figure 8: run Warfrin/warfarin_runner_3tprs.py to compute the partial identification sets, and then use Warfrin/parse_warfarin_tpr_suppfn.ipynb to produce the plots  
 
-###################################
 # Main code for computing optimization programs, Alg. 2, and subproblems
-###################################
 ecological_fairness.py contains the functions that set up the optimization programs, compute the discretization-based algorithm, and determine feasibility ranges (including routines specialized for the case studies). 
 
 For usage, please refer to the case studies scripts to compute approximate support function evaluations in parallel for HMDA and Warfarin, respectively: 
