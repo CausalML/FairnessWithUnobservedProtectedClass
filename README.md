@@ -20,9 +20,7 @@ Then run HMDA/fit_proxy_prob.R to fit proxy models to estimate the race and outc
 - Figure 5: Will need to run 'python HMDA/compute_hmda_demo_disparity_runner.py' (Comment/uncomment blocks as needed to run for income, county, or both). This will generate output in the 'out/income' or 'out/county' depending on 'stump' variable. 
 Use 'parse_hmda_demo_disparity.ipynb' to generate plots from 'out' directories. 
 
-###################################
 # Results for Warfarin (Section 8.2)
-###################################
 ### Data Downloading 
 Downloading link: International Warfarin Pharmacogenetics Consortium (IWPC) dataset in https://www.pharmgkb.org/downloads
 
